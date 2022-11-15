@@ -9,14 +9,14 @@ import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
-@Table(name = "medico")
+@Table(name = "medicos")
 @Entity(name = "Medico")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Medico {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
