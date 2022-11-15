@@ -1,9 +1,6 @@
 package com.example.spring3api.controller;
 
-import com.example.spring3api.medico.DadosCadastroMedico;
-import com.example.spring3api.medico.DadosListagemMedico;
-import com.example.spring3api.medico.Medico;
-import com.example.spring3api.medico.MedicoRepository;
+import com.example.spring3api.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,8 +32,9 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public void atualiza(@RequestBody @Valid DadosCadastroMedico dados) {
-
+    public void atualiza(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+        var medico = repository.getReferenceById(dados.id());
+        medico.atualizaInformacoes(dados);
     }
 
 }
